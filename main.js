@@ -1,4 +1,5 @@
 //Base de datos de objetos creados a partir del constructor del archivo constructor.js
+//prueba
 
 var producto1 = new AlimentoPerros(
   "RoyalCanin",
