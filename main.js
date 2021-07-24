@@ -70,8 +70,10 @@ $(document).ready(function () {
   //Ahora agrega dinamicamente toda la tarjeta al agregar u nuevo producto ej: crear un producto7 y sumarlo al array data. ***ACA JQUERY***
   function pintar() {
     for (i = 0; i < data.length; i++) {
-      $("#filaTarjetas").append(
-        `<div class="col-md-4 col-sm-12 mt-4">
+      $("#filaTarjetas")
+        .hide()
+        .append(
+          `<div class="col-md-4 col-sm-12 mt-4">
           <div class="card bg-light" id="card${i}" style="width: 18rem">
             <img class="card-img-top bg-white" id="imgC${i}" src="${dataStorage[i].img}" alt="alimento balanceado" />
             <h6>${dataStorage[i].id}</h6>
@@ -86,13 +88,16 @@ $(document).ready(function () {
             </div>
           </div>
         </div>`
-      );
+        )
+        .slideDown(300);
     }
   }
   pintar();
 
   //JQUERY ESCONDE EL nro de ID
   $("h6").hide();
+  $(".CarritDeCompra").hide();
+  $(".CarritDeCompra").fadeIn(1000);
 
   //Eventos de los botones - dependiendo de cual apretes seran los datos que devuelva.
   const botonesAgregarCarrito = document.querySelectorAll(".btn-primary");
@@ -116,7 +121,7 @@ $(document).ready(function () {
         data[i].stock--;
         data[i].vendidos++;
         var cantidad = data[i].vendidos;
-        console.log(data[i].vendidos);
+
         var carritoo = [
           data[i].nombre,
           data[i].precio,
@@ -124,36 +129,51 @@ $(document).ready(function () {
           data[i].precio * data[i].vendidos,
         ];
         //ACA JQUERY TAMBIEN*****************
-        $("#carrito2").html(`<div class="row">
-              <div class="col-3">
-                <div class="shopping-cart-header">
+        $("#carrito2")
+          .fadeIn(500)
+          .append(
+            `<div class="row row-${data[i].id}" id="agregados">
+              <div class="col-1 col-${data[i].id}">
+                <div class="shopping-cart-header fila-${data[i].id}">
                   ${data[i].id}
                 </div>
               </div>
-              <div class="col-3">
+              <div class="col-3 col-${data[i].id}">
                 <div class="shopping-cart-header">
                   <h6>${data[i].nombre}</h6>
                 </div>
               </div>
-              <div class="col-2">
+              <div class="col-2 col-${data[i].id}">
                 <div class="shopping-cart-header">
                   <h6>$${data[i].precio}</h6>
                 </div>
               </div>
-              <div class="col-2">
+              <div class="col-2 col-${data[i].id}">
                 <div class="shopping-cart-header">
                 <h6 >${data[i].vendidos}</h6>
                 </div>
               </div>
-              <div class="col-2">
-                <div class="shopping-cart-header">
+              <div class="col-2 col-${data[i].id}">
+                <div class="shopping-cart-header ">
                   <h6>$${data[i].precio * data[i].vendidos}</h6>
                 </div>
+                </div>
+                <div class="col-2"><button id="btn-${
+                  data[i].id
+                }" class="btn btn-danger mb-3
+                ">X</button></div>
+                <hr>
               </div>
-              <hr>
+              
             </div>
-          </div>`);
+          </div>`
+          );
       }
+      $(`#btn-${data[i].id}`).click(function () {
+        $(`.row-${data[i].id}`).fadeOut("slow", function () {
+          $(`.row-${data[i].id}`).remove();
+        });
+      });
     }
 
     //Problema a solucionar: Que al seleccionar varias veces el mismo producto, solo se aumente la cantidad en lugar de pintarse de vuelta-
