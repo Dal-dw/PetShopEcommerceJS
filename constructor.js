@@ -1,14 +1,11 @@
 class AlimentoPerros {
-  constructor(id, nombre, stock, precio, img, descripcion) {
-    this.id = id;
-    this.nombre = nombre;
-    this.stock = stock;
-    this.precio = precio;
-    this.img = img;
-    this.descripcion = descripcion;
-  }
-  calcStock(comprado) {
-    let restante = comprado - this.stock;
-    return restante;
+  constructor(aId, aNombre, aStock, aPrecio, aImg, aDescripcion, aVendidos) {
+    this.id = aId;
+    this.nombre = aNombre;
+    this.stock = aStock;
+    this.precio = aPrecio;
+    this.img = aImg;
+    this.descripcion = aDescripcion;
+    this.vendidos = aVendidos;
   }
 }
