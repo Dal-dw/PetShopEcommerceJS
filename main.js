@@ -136,6 +136,7 @@ $(document).ready(function () {
           data[i].precio,
           data[i].vendidos,
           data[i].precio * data[i].vendidos,
+          data[i].stock,
         ];
 
         $("#carrito2").show(
@@ -177,24 +178,22 @@ $(document).ready(function () {
             </div>
           `
         );
+        //borra el producto agregado al carrito.
         $(`#btn-${data[i].id}`).click(function () {
-          $(`.row-${data[i].id}`).fadeOut("slow", function () {
-            $(`.row-${data[i].id}`).hide();
-            `${data[i].stock}` + 1000;
-          });
+          $(`.row-${data[i].id}`).text("");
+          //devuelve el contador de Stock al valor original en pantalla.
+          $(`#stockC${[i]}`).text(
+            parseInt(`${data[i].stock}`) + parseInt(`${data[i].vendidos}`)
+          );
+          //devuelve el contador de Stock al valor original en la base de datos.
+          data[4].stock =
+            parseInt(`${data[i].stock}`) + parseInt(`${data[i].vendidos}`);
+          //vuelve el contador del carrito a 0
+          data[i].vendidos = 0;
         });
       }
-      //aca funciona el X
-      $(`#btn-${data[i].id}`).click(function () {
-        $(`.row-${data[i].id}`).fadeOut("slow", function () {
-          data[i].stock + 1000;
-          $(`.row-${data[i].id}`).hide();
-        });
-      });
 
       //JQUERY Animacion concatenada. Esta funcion controla el boton eliminar "X" y borra el elemento creado al agregar al carrito.
     }
   }
 });
-
-//Problema a solucionar: Que al borrar un producto del carrito se lo pueda volver a agregar y que el stock vuelva al valor inicial.-
