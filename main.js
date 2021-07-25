@@ -112,12 +112,10 @@ $(document).ready(function () {
   $(".CarritoDeCompra").delay(1000).fadeIn(800);
 
   //Eventos de los botones - dependiendo de cual apretes seran los datos que devuelva.
-  var cuenta = [];
 
   //Esta funcion gracias a la constante card toma los elementos mas cercanos al boton presionado para devolver los datos.
 
   function agregarCarrito(event) {
-    console.log(botonesAgregarCarrito);
     event.preventDefault();
     const button = event.target;
     // captura los elementos mas cercanos al boton presionado gracias a button.closest y la clase .card del div que lo contiene
@@ -139,16 +137,12 @@ $(document).ready(function () {
           data[i].vendidos,
           data[i].precio * data[i].vendidos,
         ];
-        function totalAgr() {
-          cuenta.push(`${data[i].id}`);
-          console.log(cuenta);
-        }
-        totalAgr();
-        $("#carrito2")
-          .fadeIn(500)
-          .html(
-            `<div class="row row-${data[i].id}" id="agregados">
-              <div class="col-1 col-${data[i].id}">
+
+        $("#carrito2").show(
+          `<div class="row row-${data[i].id}" id="agregados"></div>`
+        );
+        $(`.row-${data[i].id}`).html(
+          `<div class="col-1 col-${data[i].id}">
                 <div class="shopping-cart-header fila-${data[i].id}">
                   ${data[i].id}
                 </div>
@@ -181,22 +175,26 @@ $(document).ready(function () {
               </div>
               
             </div>
-          </div>`
-          );
+          `
+        );
+        $(`#btn-${data[i].id}`).click(function () {
+          $(`.row-${data[i].id}`).fadeOut("slow", function () {
+            $(`.row-${data[i].id}`).hide();
+            `${data[i].stock}` + 1000;
+          });
+        });
       }
-
-      //JQUERY Animacion concatenada. Esta funcion controla el boton eliminar "X" y borra el elemento creado al agregar al carrito.
+      //aca funciona el X
       $(`#btn-${data[i].id}`).click(function () {
         $(`.row-${data[i].id}`).fadeOut("slow", function () {
-          $(`.row-${data[i].id}`).remove();
+          data[i].stock + 1000;
+          $(`.row-${data[i].id}`).hide();
         });
       });
+
+      //JQUERY Animacion concatenada. Esta funcion controla el boton eliminar "X" y borra el elemento creado al agregar al carrito.
     }
-
-    //Problema a solucionar: Que al seleccionar varias veces el mismo producto, solo se aumente la cantidad en lugar de pintarse de vuelta-
-
-    $(".btn-primary").click(function (event) {
-      event.preventDefault();
-    });
   }
 });
+
+//Problema a solucionar: Que al borrar un producto del carrito se lo pueda volver a agregar y que el stock vuelva al valor inicial.-
