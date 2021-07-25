@@ -150,22 +150,24 @@ $(document).ready(function () {
               </div>
               <div class="col-3 col-${data[i].id}">
                 <div class="shopping-cart-header">
-                  <h6>${data[i].nombre}</h6>
+                  <h6 class="fs-4">${data[i].nombre}</h6>
                 </div>
               </div>
               <div class="col-2 col-${data[i].id}">
                 <div class="shopping-cart-header">
-                  <h6>$${data[i].precio}</h6>
+                  <h6 class="fs-4">$${data[i].precio}</h6>
                 </div>
               </div>
               <div class="col-2 col-${data[i].id}">
                 <div class="shopping-cart-header">
-                <h6 id="cantidad-${data[i].id}">${data[i].vendidos}</h6>
+                <h6 class="fs-4" id="cantidad-${data[i].id}">${
+            data[i].vendidos
+          }</h6>
                 </div>
               </div>
               <div class="col-2 col-${data[i].id}">
                 <div class="shopping-cart-header ">
-                  <h6>$${data[i].precio * data[i].vendidos}</h6>
+                  <h6 class="fs-4">$${data[i].precio * data[i].vendidos}</h6>
                 </div>
                 </div>
                 <div class="col-2"><button id="btn-${
