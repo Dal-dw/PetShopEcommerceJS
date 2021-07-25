@@ -82,7 +82,7 @@ $(document).ready(function () {
               <p class="card-text">${dataStorage[i].descripcion}</p>
               <h4 id="precioC${i}" class="card-title text-success">$${dataStorage[i].precio}</h4>
               <h5 class="card-title">Stock: <span id="stockC${i}">${data[i].stock}</span></h5>
-              <button class="btn btn-primary" type="submit">
+              <button id="boton-${data[i].id}" class="btn btn-primary" type="submit">
                 Agregar al carrito
               </button>
             </div>
@@ -94,19 +94,31 @@ $(document).ready(function () {
   }
   pintar();
 
-  //JQUERY ESCONDE EL nro de ID
+  function botones() {
+    for (i = 0; i < data.length; i++) {
+      botonesAgregarCarrito = document.querySelectorAll(`#boton-${data[i].id}`);
+      botonesAgregarCarrito.forEach((botonAgregarCarrito) => {
+        botonAgregarCarrito.onclick = agregarCarrito;
+      });
+    }
+  }
+  botones();
+
+  //JQUERY esconde el nro de ID
   $("h6").hide();
-  $(".CarritDeCompra").hide();
-  $(".CarritDeCompra").fadeIn(1000);
+  //Animaciones Jquery -primeras
+  $(".CarritoDeCompra").hide();
+
+  $(".CarritoDeCompra").delay(1000).fadeIn(800);
 
   //Eventos de los botones - dependiendo de cual apretes seran los datos que devuelva.
-  const botonesAgregarCarrito = document.querySelectorAll(".btn-primary");
-  botonesAgregarCarrito.forEach((botonAgregarCarrito) => {
-    botonAgregarCarrito.onclick = agregarCarrito;
-  });
+  var cuenta = [];
 
   //Esta funcion gracias a la constante card toma los elementos mas cercanos al boton presionado para devolver los datos.
+
   function agregarCarrito(event) {
+    console.log(botonesAgregarCarrito);
+    event.preventDefault();
     const button = event.target;
     // captura los elementos mas cercanos al boton presionado gracias a button.closest y la clase .card del div que lo contiene
     const card = button.closest(".card");
@@ -120,7 +132,6 @@ $(document).ready(function () {
       if (data[i].id == id) {
         data[i].stock--;
         data[i].vendidos++;
-        var cantidad = data[i].vendidos;
 
         var carritoo = [
           data[i].nombre,
@@ -128,10 +139,14 @@ $(document).ready(function () {
           data[i].vendidos,
           data[i].precio * data[i].vendidos,
         ];
-        //ACA JQUERY TAMBIEN*****************
+        function totalAgr() {
+          cuenta.push(`${data[i].id}`);
+          console.log(cuenta);
+        }
+        totalAgr();
         $("#carrito2")
           .fadeIn(500)
-          .append(
+          .html(
             `<div class="row row-${data[i].id}" id="agregados">
               <div class="col-1 col-${data[i].id}">
                 <div class="shopping-cart-header fila-${data[i].id}">
@@ -150,7 +165,7 @@ $(document).ready(function () {
               </div>
               <div class="col-2 col-${data[i].id}">
                 <div class="shopping-cart-header">
-                <h6 >${data[i].vendidos}</h6>
+                <h6 id="cantidad-${data[i].id}">${data[i].vendidos}</h6>
                 </div>
               </div>
               <div class="col-2 col-${data[i].id}">
@@ -169,6 +184,8 @@ $(document).ready(function () {
           </div>`
           );
       }
+
+      //JQUERY Animacion concatenada. Esta funcion controla el boton eliminar "X" y borra el elemento creado al agregar al carrito.
       $(`#btn-${data[i].id}`).click(function () {
         $(`.row-${data[i].id}`).fadeOut("slow", function () {
           $(`.row-${data[i].id}`).remove();
