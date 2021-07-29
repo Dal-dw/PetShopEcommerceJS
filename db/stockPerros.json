@@ -1,0 +1,56 @@
+[
+  {
+    "id": "01",
+    "nombre": "Royal Canin",
+    "stock": 5900,
+    "precio": 3000,
+    "img": "./img/RoyalCanin1.jpg",
+    "descripcion": "Alimento balanceado de alta calidad Premium",
+    "vendidos": 0
+  },
+  {
+    "id": "02",
+    "nombre": "Pro Plan",
+    "stock": 41,
+    "precio": 2600,
+    "img": "./img/ProPlan1.png",
+    "descripcion": "Alimento balanceado de alta calidad Premium",
+    "vendidos": 0
+  },
+  {
+    "id": "03",
+    "nombre": "Eukanuba",
+    "stock": 32,
+    "precio": 2300,
+    "img": "./img/Eukanuba1.jpg",
+    "descripcion": "Alimento balanceado de calidad Premium",
+    "vendidos": 0
+  },
+  {
+    "id": "04",
+    "nombre": "Dog Chow",
+    "stock": 70,
+    "precio": 1800,
+    "img": "./img/DogChow1.jpg",
+    "descripcion": "Alimento balanceado 'Barat'",
+    "vendidos": 0
+  },
+  {
+    "id": "05",
+    "nombre": "Dogui",
+    "stock": 140,
+    "precio": 700,
+    "img": "./img/Dogui1.jpg",
+    "descripcion": "Alimento balanceado baratito",
+    "vendidos": 0
+  },
+  {
+    "id": "06",
+    "nombre": "PEPEPE",
+    "stock": 1400,
+    "precio": 70021,
+    "img": "./img/huella.jpg",
+    "descripcion": "Alimento balanceado TRUCHO",
+    "vendidos": 0
+  }
+]

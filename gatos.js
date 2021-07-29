@@ -6,8 +6,7 @@ $(document).ready(function () {
   data = [];
   // GET
 
-  $.get("./db/stockPerros.json", function (datos) {
-    console.log(datos);
+  $.get("./db/stockGatos.json", function (datos) {
     data = datos;
     //VUELVE EL GET CON LOS DATOS
 
@@ -19,11 +18,14 @@ $(document).ready(function () {
       `${data[4].stock}`,
       `${data[5].stock}`,
     ];
+    //array de productos
+    //dataa = [producto1, producto2, producto3, producto4, producto5, producto6];
 
-    //JQUERY elementos escondidos
+    //Ahora agrega dinamicamente toda la tarjeta al agregar u nuevo producto ej: crear un producto7 y sumarlo al array data. ***ACA JQUERY***
 
     pintar();
 
+    //JQUERY elementos escondidos
     $("h6").hide();
     $("#boton-comprar").hide();
     //Animaciones Jquery - al cargar la pagina primero aparecen las cards y despues el carrito.

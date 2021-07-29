@@ -1,0 +1,56 @@
+[
+  {
+    "id": "01",
+    "nombre": "Excellent",
+    "stock": 25000,
+    "precio": 3378,
+    "img": "./img/excellent.jpg",
+    "descripcion": "Alimento balanceado de alta calidad Premium",
+    "vendidos": 0
+  },
+  {
+    "id": "02",
+    "nombre": "Nutrique",
+    "stock": 32,
+    "precio": 3620,
+    "img": "./img/nutrique.jpg",
+    "descripcion": "Alimento balanceado de alta calidad Premium",
+    "vendidos": 0
+  },
+  {
+    "id": "03",
+    "nombre": "VitalCat",
+    "stock": 15,
+    "precio": 2983,
+    "img": "./img/vitalCat.png",
+    "descripcion": "Alimento balanceado de calidad Premium",
+    "vendidos": 0
+  },
+  {
+    "id": "04",
+    "nombre": "Cat Chow",
+    "stock": 41,
+    "precio": 995,
+    "img": "./img/catchow.png",
+    "descripcion": "Alimento balanceado 'Barat'",
+    "vendidos": 0
+  },
+  {
+    "id": "05",
+    "nombre": "Royal Canin",
+    "stock": 39,
+    "precio": 10360,
+    "img": "./img/royalcaningato.png",
+    "descripcion": "Alimento balanceado bien caro",
+    "vendidos": 0
+  },
+  {
+    "id": "06",
+    "nombre": "Gati",
+    "stock": 248,
+    "precio": 900,
+    "img": "./img/gati.jpg",
+    "descripcion": "Alimento balanceado Venenoso",
+    "vendidos": 0
+  }
+]
