@@ -1,12 +1,3 @@
-function botones() {
-  botonesAgregarCarrito = document.querySelectorAll(".btn-primary");
-
-  botonesAgregarCarrito.forEach((botonAgregarCarrito) => {
-    botonAgregarCarrito.onclick = agregarCarrito;
-  });
-  return botones;
-}
-
 //Esta funcion gracias a la constante card toma los elementos mas cercanos al boton presionado para devolver los datos.
 function agregarCarrito(e) {
   const button = e.target;
