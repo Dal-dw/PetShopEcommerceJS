@@ -10,16 +10,43 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+    <title>Poppies</title>
   </head>
-  <body>
-    <div class="container">
-      <h1>Alimento Balanceado (Perros)</h1>
-      <a href="./gatos.html">Ir a Gatos</a>
-      <hr />
-      <div class="row mb-5" id="filaTarjetas"></div>
+  <body class="bg">
+    <section id="principal" >
+    <div class=" container-fluid bg-primary text-center" id="botonesNoche">
+      <button id="noche" class="btn btn-dark btn-lg">☾</button>
+      <button id="dia" class="btn btn-danger btn-lg">☼</button>
+    </div>
+
+    <div id="portada" class="text-center " style="width: 100%; background-color: #ffde59;">
+      <img  style="width: 50%;" src="./img/Poppies.png" alt="Portada" />
+    </div>
+
+    <div class="container-fluid bg-primary py-2" id="botones" style="position: relative; text-align: center;">
+      <a class="text-light text-decoration-none" href="#/index"><button class="btn btn-outline-warning btn-lg" style="width: 10%;" id="botonHome">HOME</button></a>
+      
+      <a class="text-light text-decoration-none"  href="#/users"><button class="btn btn-outline-warning btn-lg" style="width: 10%;" id="botonAdmin">USUARIOS</button></a>
+      <a class="text-light text-decoration-none" href="#/shop"><button type="button" class="btn btn-outline-warning btn-lg" style="width: 10%;" id="botonProductos">SHOP</button></a>
+      <a class="text-light text-decoration-none" href="#/nosotros"><button type="button" class="btn btn-outline-warning btn-lg" style="width: 10%;" id="botonNosotros">NOSOTROS</button></a>
+
+    </div>
+    
+    <div id="bienvenida" ></div>
+    
+    <section >
+    <div class="container" >
+    <br>
+    
+      <!-- acá se muesran los productos -->
+      <div class="row mb-5 mt-5" id="filaTarjetas"></div>
+      <div class="row mb-5 mt-5" id="filaTarjetasGatos"></div>
+      <!-- **********SPA************ -->
+      <div class="row mb-5 mt-5" id="admin"></div>
+
+      <!-- encabezado del carrito -->
       <section class="CarritoDeCompra mt-5">
-        <div class="container">
+        <div class="w-100" >
           <h1 class="text-center">CARRITO</h1>
           <hr />
           <div class="row">
@@ -48,10 +75,10 @@
                 <h5>Precio total</h5>
               </div>
             </div>
-            <hr />
+            <hr class="text-dark" />
           </div>
         </div>
-
+        <!-- Acá se muestan los productos agregados al carrito -->
         <div class="container mb-5" id="carrito2">
           <div class="row row-01 fs-4"></div>
           <div class="row row-02 fs-4"></div>
@@ -59,38 +86,121 @@
           <div class="row row-04 fs-4"></div>
           <div class="row row-05 fs-4"></div>
           <div class="row row-06 fs-4"></div>
+          <div class="row row-07 fs-4"></div>
+          <div class="row row-08 fs-4"></div>
+          <div class="row row-09 fs-4"></div>
+          <div class="row row-10 fs-4"></div>
+          <div class="row row-11 fs-4"></div>
+          <div class="row row-12 fs-4"></div>
+          <div class="row row-13 fs-4"></div>
+          <div class="row row-14 fs-4"></div>
+          <div class="row row-15 fs-4"></div>
+          <div class="row row-16 fs-4"></div>
+          <div class="row row-17 fs-4"></div>
+          <div class="row row-18 fs-4"></div>
         </div>
         <div class="d-grid gap-2 m-4">
           <button
-            class="btn btn-success align-right"
+            class="btn btn-primary align-right"
             type="button"
             id="boton-comprar"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
           >
             Comprar
           </button>
         </div>
+        <div class="container prueba"></div>
+      </section>
+    </section>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          data-keyboard="false" data-backdrop="static"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title fs-1" id="exampleModalLabel">
+                  Confirmar compra
+                </h5>
+                <button
+                  id="botonX"
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">...</div>
+              <div class="modal-footer">
+                <h5 class="text-danger">Total: $</h5><h5 class="text-danger font-weight-bold" id="precioTotal"></h5>
+                <button
+                  id="cancelar"
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Volver
+                </button>
+                
+                <a href="https://www.mercadopago.com.ar/amigos/envio-de-dinero" target="_blank"><button type="button" class="btn btn-primary">Pagar</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
-
+    <!-- fin del modal -->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
 
-    <script src="./constructores/constructor.js"></script>
-    <script src="./constructor2.js"></script>
-    <script src="./functions/botones.js"></script>
-    <script src="./functions/agregarCarrito.js"></script>
+    <script src="./functions/botonHome.js"></script>
+    <script src="./functions/botonesPerros.js"></script>
+    <script src="./functions/modoNoche.js"></script>
+    <script src="./functions/botonesGatos.js"></script>
+    <script src="./functions/pintarPerros.js"></script>
+    <script src="./functions/pintarGatos.js"></script>
+    <script src="./functions/agregarCarritoGatos.js"></script>
+    <script src="./functions/agregarCarritoPerros.js"></script>
+    
+    
+    <script src="./router/router.js"></script>
+    
+    
+    <script src="/functions/botonComprar.js"></script>
     <script src="./main.js"></script>
-    <script src="./functions/pintar.js"></script>
-
-    <script src="./bd.json"></script>
-
+    
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
   </body>
+<!-- Footer -->
+<!-- Footer -->
+<footer class="page-footer font-small indigo bg-primary">
+
+  <H1 class="text-center">FOOTER</H1>
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2021 Copyright:
+    <a href="https://github.com/Dal-dw" class="text-dark"> Dardo Lopez</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+<!-- Footer -->
 </html>

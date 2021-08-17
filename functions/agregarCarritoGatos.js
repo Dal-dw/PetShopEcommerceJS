@@ -1,11 +1,12 @@
 //Esta funcion gracias a la constante card toma los elementos mas cercanos al boton presionado para devolver los datos.
-function agregarCarrito(e) {
+function agregarCarritoGatos(e) {
   const button = e.target;
 
   // captura los elementos mas cercanos al boton presionado gracias a button.closest y la clase .card del div que lo contiene
   const card = button.closest(".card");
 
-  var id = card.querySelector("h6").textContent;
+  id = card.querySelector(".h6").textContent;
+
   //pintar el stock restante con cada click del respectivo boton.
   card.querySelector("span").textContent--;
 
@@ -23,45 +24,47 @@ function agregarCarrito(e) {
         data[i].stock,
         data[i].img,
       ];
-      $("#boton-comprar").show();
+
       $("#carrito2").show(
-        `<div class="row row-${data[i].id}" id="agregados"></div>`
+        `<div class="row ${data[i].id}" id="agregados"></div>`
       );
       $(`.row-${data[i].id}`).html(
-        `<div class="col-1 col-${data[i].id}">
-                <div class="shopping-cart-header fila-${data[i].id}">
+        `<div class="col-1 columna-${data[i].id}">
+                <div class="shopping-cart-header">
                   <img src="${
                     data[i].img
                   }" alt="mini-foto" style="width: 50%" ; />
                 </div>
               </div>
-              <div class="col-3 col-${data[i].id}">
-                <div class="shopping-cart-header">
+              <div class="col-3 columna-${data[i].id}">
+                <div class="shopping-cart-header text-dark">
                   <h6 class="fs-4">${data[i].nombre}</h6>
                 </div>
               </div>
-              <div class="col-2 col-${data[i].id}">
-                <div class="shopping-cart-header">
+              <div class="col-2 columna-${data[i].id}">
+                <div class="shopping-cart-header text-dark">
                   <h6 class="fs-4">$${data[i].precio}</h6>
                 </div>
               </div>
-              <div class="col-2 col-${data[i].id}">
-                <div class="shopping-cart-header">
-                <h6 class="fs-4 text-center" id="cantidad-${data[i].id}">${
-          data[i].vendidos
-        }</h6>
+              <div class="col-2 columna-${data[i].id}">
+                <div class="shopping-cart-heade ">
+                <h6 class="fs-4 text-center text-dark" id="cantidad-${
+                  data[i].id
+                }">${data[i].vendidos}</h6>
                 </div>
               </div>
-              <div class="col-2 col-${data[i].id}">
+              <div class="col-2 columna-${data[i].id}">
                 <div class="shopping-cart-header ">
-                  <h6 class="fs-4">$${data[i].precio * data[i].vendidos}</h6>
+                  <span class="text-info mx-1">$</span><h6 style="display: inline;" class="fs-4 text-info precioUnitario-${
+                    data[i].id
+                  }">${data[i].precio * data[i].vendidos}</h6>
                 </div>
                 </div>
                 <div class="col-2"><button id="btn-${
                   data[i].id
                 }" class="btn btn-danger mb-3
                 ">X</button></div>
-                <hr>
+                <hr class= "mt-3">
               </div>
               
             </div>`
