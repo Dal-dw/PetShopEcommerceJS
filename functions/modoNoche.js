@@ -1,3 +1,4 @@
+//Mayormente baja el brillo, ese puede mejorar.
 function noche() {
   $("#noche").on("click", function () {
     $("#botonesNoche").css("filter", "brightness(0.8)");

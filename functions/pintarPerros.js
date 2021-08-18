@@ -1,3 +1,4 @@
+//renderiza las tarjetas conteniendo comida de perros.
 function pintar() {
   for (i = 0; i < data1.length; i++) {
     $("#filaTarjetasPerro")

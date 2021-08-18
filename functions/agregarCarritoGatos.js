@@ -16,15 +16,6 @@ function agregarCarritoGatos(e) {
       data[i].stock--;
       data[i].vendidos++;
 
-      var carritoo = [
-        data[i].nombre,
-        data[i].precio,
-        data[i].vendidos,
-        data[i].precio * data[i].vendidos,
-        data[i].stock,
-        data[i].img,
-      ];
-
       $("#carrito2").show(
         `<div class="row ${data[i].id}" id="agregados"></div>`
       );
@@ -63,7 +54,7 @@ function agregarCarritoGatos(e) {
                 <div class="col-2"><button id="btn-${
                   data[i].id
                 }" class="btn btn-danger mb-3
-                ">X</button></div>
+                ">X</i></button></div>
                 <hr class= "mt-3">
               </div>
               

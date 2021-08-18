@@ -16,15 +16,6 @@ function agregarCarritoPerros(e) {
       data1[i].stock--;
       data1[i].vendidos++;
 
-      var carritooo = [
-        data1[i].nombre,
-        data1[i].precio,
-        data1[i].vendidos,
-        data1[i].precio * data1[i].vendidos,
-        data1[i].stock,
-        data1[i].img,
-      ];
-
       //$("#boton-comprar").show();
       $("#carrito2").show(
         `<div class="row row-${data1[i].id} bg-light" id="agregadosP"></div>`

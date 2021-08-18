@@ -1,3 +1,4 @@
+//botones "agregar al carrito" de cada tarjeta.
 function botonesGatos() {
   botonesAgregarCarrito = document.querySelectorAll(".verde");
 

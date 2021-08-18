@@ -15,8 +15,5 @@ function gatos() {
     pintarGatos();
     botonesGatos();
     $("h6").hide();
-
-    //$("#bodyGatos").fadeIn();
-    //botonesGatos();
   });
 }

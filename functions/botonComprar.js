@@ -18,11 +18,11 @@ function botonComprar() {
     ];
 
     //Array limpio sin los Nan
-    myArrClean = preciosUnitarios.filter(Number);
+    arrLimpio = preciosUnitarios.filter(Number);
     //suma los valores del array limpio
     var precioTotal = 0;
-    for (let i = 0; i < myArrClean.length; i++) {
-      precioTotal += myArrClean[i];
+    for (let i = 0; i < arrLimpio.length; i++) {
+      precioTotal += arrLimpio[i];
     }
     //pinta en el modal
     $("#precioTotal").html(precioTotal);

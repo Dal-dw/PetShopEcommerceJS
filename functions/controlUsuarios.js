@@ -1,3 +1,4 @@
+//Sistema de Login
 function controlUsuarios() {
   $("form").submit(function (event) {
     var usuario = document.getElementById("usuario").value;
@@ -53,6 +54,7 @@ function controlUsuarios() {
               </li>
               
             </ul>`);
+          $("#panelAdmin").hide();
         } else {
           alert("contraseña incorrecta");
         }
@@ -78,6 +80,7 @@ function controlUsuarios() {
               </li>
               
             </ul>`);
+          $("#panelAdmin").hide();
         } else {
           alert("contraseña incorrecta");
         }
@@ -103,6 +106,7 @@ function controlUsuarios() {
               </li>
               
             </ul>`);
+          $("#panelAdmin").hide();
         } else {
           alert("contraseña incorrecta");
         }

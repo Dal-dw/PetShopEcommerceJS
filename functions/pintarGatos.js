@@ -1,3 +1,4 @@
+//renderiza las tarjetas conteniendo comida de gatos.
 function pintarGatos() {
   for (i = 0; i < data.length; i++) {
     $("#filaTarjetasGato")
